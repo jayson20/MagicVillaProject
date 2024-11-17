@@ -4,6 +4,7 @@ using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla_VillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117193149_AddVillaNumberTable")]
+    partial class AddVillaNumberTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 1,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 11, 17, 20, 38, 15, 476, DateTimeKind.Local).AddTicks(6621),
+                            CreatedDate = new DateTime(2024, 11, 17, 20, 31, 49, 45, DateTimeKind.Local).AddTicks(3523),
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ImageUrl = "https://media.istockphoto.com/id/1929345158/photo/modern-apartment-with-large-windows.webp?s=2048x2048&w=is&k=20&c=BVoaNU0lklmbqhVmwt7Ospi8ecdVkap-NmrvCNuRUyY=",
                             Name = "Royal Villa",
@@ -83,7 +86,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 2,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 11, 17, 20, 38, 15, 476, DateTimeKind.Local).AddTicks(6633),
+                            CreatedDate = new DateTime(2024, 11, 17, 20, 31, 49, 45, DateTimeKind.Local).AddTicks(3536),
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ImageUrl = "https://media.istockphoto.com/id/1929345158/photo/modern-apartment-with-large-windows.webp?s=2048x2048&w=is&k=20&c=BVoaNU0lklmbqhVmwt7Ospi8ecdVkap-NmrvCNuRUyY=",
                             Name = "Pool Villa",
@@ -96,7 +99,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 3,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 11, 17, 20, 38, 15, 476, DateTimeKind.Local).AddTicks(6635),
+                            CreatedDate = new DateTime(2024, 11, 17, 20, 31, 49, 45, DateTimeKind.Local).AddTicks(3538),
                             Details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ImageUrl = "https://media.istockphoto.com/id/1929345158/photo/modern-apartment-with-large-windows.webp?s=2048x2048&w=is&k=20&c=BVoaNU0lklmbqhVmwt7Ospi8ecdVkap-NmrvCNuRUyY=",
                             Name = "Kings Villa",
@@ -130,16 +133,16 @@ namespace MagicVilla_VillaAPI.Migrations
                         new
                         {
                             VillaNo = 1,
-                            CreatedDate = new DateTime(2024, 11, 17, 20, 38, 15, 476, DateTimeKind.Local).AddTicks(6761),
+                            CreatedDate = new DateTime(2024, 11, 17, 20, 31, 49, 45, DateTimeKind.Local).AddTicks(3682),
                             SpecialDetails = "For exclusiveness",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 11, 17, 20, 31, 49, 45, DateTimeKind.Local).AddTicks(3680)
                         },
                         new
                         {
                             VillaNo = 2,
-                            CreatedDate = new DateTime(2024, 11, 17, 20, 38, 15, 476, DateTimeKind.Local).AddTicks(6763),
+                            CreatedDate = new DateTime(2024, 11, 17, 20, 31, 49, 45, DateTimeKind.Local).AddTicks(3685),
                             SpecialDetails = "Agility",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 11, 17, 20, 31, 49, 45, DateTimeKind.Local).AddTicks(3684)
                         });
                 });
 #pragma warning restore 612, 618
