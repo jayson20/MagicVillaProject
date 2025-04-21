@@ -14,6 +14,7 @@ namespace MagicVilla_VillaAPI.Repository
         public Repository(ApplicationDbContext db)
         {
             _db = db;
+            //-db.VillaNumbers.Include(u => u.Villa).ToList();
             this.dbSet = _db.Set<T>();
         }
         public async Task CreateAsync(T entity)
@@ -22,7 +23,7 @@ namespace MagicVilla_VillaAPI.Repository
             await SaveAsync();
         }
 
-        public async Task<T> GetAsync(Expression<Func<T, bool>> filter = null, bool tracked = true)
+        public async Task<T> GetAsync(Expression<Func<T, bool>> filter = null, bool tracked = true, string? includingProperties = null)
         {
             IQueryable<T> query = dbSet; //It doesnt get executed right away, IQueryable
 
@@ -34,16 +35,30 @@ namespace MagicVilla_VillaAPI.Repository
             {
                 query = query.Where(filter);
             }
+            if (includingProperties != null)
+            {
+                foreach(var includeProp in includingProperties.Split(new char[]{ ','}, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
             return await query.FirstOrDefaultAsync(); //At this point, the query will be executed. This is deferred execution. ToList causes immediate execution
         }
 
-        public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null)
+        public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null, string? includingProperties = null)
         {
             IQueryable<T> query = dbSet; //It doesnt get executed right away, IQueryable
 
             if (filter != null)
             {
                 query = query.Where(filter);
+            }
+            if (includingProperties != null)
+            {
+                foreach (var includeProp in includingProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
             }
             return await query.ToListAsync(); //At this point, the query will be executed. This is deferred execution. ToList causes immediate execution
         }
